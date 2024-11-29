@@ -3,7 +3,7 @@ let cpuScreen = document.querySelector('.cpu-screen');
 let heading = document.querySelector('.heading-1');
 
 // player choice
-let choices = document.querySelectorAll('.choices div');
+let choices = document.querySelectorAll('.choices div:not(.random-play)');
 for(let i = 0; i < choices.length; i ++){
     choices[i].addEventListener('click', (event)=>{
         let choice = event.target;

@@ -50,11 +50,28 @@ body{
     justify-content: center;
     gap: 3rem;
 }
-.choices div{
+.choices div:not(.random-play){
     border: 2px solid hsl(0, 0%, 50%);
     border-radius: 0.5rem;
     padding: 0.2rem 1rem;
     font-size: 2rem;
+    cursor: pointer;
+}
+.random-play{
+    border: 2px solid hsl(0, 0%, 50%);
+    border-radius: 0.5rem;
+    padding: 0.2rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.random-btn{
+   margin-top: 2rem;
+    background-color: transparent;
+    color: hsl(189, 75%, 45%);
+    border: 2px solid hsl(189, 75%, 45%);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
 }
 .reset-btn{
@@ -66,4 +83,45 @@ body{
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     cursor: pointer;
+}
+
+/* media queries */
+@media (max-width: 600px){
+    .container{
+        width: 100%;
+        padding: 3rem 2rem;
+        margin: 0 auto;
+        display: grid;
+        place-items: center;
+    }
+    .game-container{
+        text-align: center;
+        margin: 0 auto;
+    }
+    .heading-1{
+        font-size: 2rem;
+        color: hsl(189, 75%, 45%);
+    }
+    .screens{
+        margin-top: 3rem;
+        margin-bottom: 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .player-screen, .cpu-screen{
+        width: 150px;
+        height: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+    }
+    .choices{
+        margin-top: 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
 }
