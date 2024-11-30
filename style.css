@@ -50,7 +50,7 @@ body{
     justify-content: center;
     gap: 3rem;
 }
-.choices div:not(.random-play){
+.choices div{
     border: 2px solid hsl(0, 0%, 50%);
     border-radius: 0.5rem;
     padding: 0.2rem 1rem;
@@ -61,18 +61,30 @@ body{
     border: 2px solid hsl(0, 0%, 50%);
     border-radius: 0.5rem;
     padding: 0.2rem 1rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
+    display: none;
+    width: 20%;
+    margin: 0 auto;
 }
 .random-btn{
-   margin-top: 2rem;
-    background-color: transparent;
+    margin-top: 1rem;
     color: hsl(189, 75%, 45%);
-    border: 2px solid hsl(189, 75%, 45%);
     border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
+    font-weight: 400;
+    text-decoration: underline;
+}
+.random-btn-exit{
+    margin-top: 1rem;
+    color: hsl(4, 100%, 58%);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 400;
+    text-decoration: underline;
+    display: none;
 }
 .reset-btn{
     margin-top: 2rem;

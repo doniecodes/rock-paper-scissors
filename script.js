@@ -1,28 +1,29 @@
 let playerScreen = document.querySelector('.player-screen');
 let cpuScreen = document.querySelector('.cpu-screen');
 let heading = document.querySelector('.heading-1');
+let choices = document.querySelectorAll('.choices div');
 
 // player choice
-let choices = document.querySelectorAll('.choices div:not(.random-play)');
-for(let i = 0; i < choices.length; i ++){
-    choices[i].addEventListener('click', (event)=>{
-        let choice = event.target;
-        if(choice){
-            playerScreen.innerHTML = choice.innerHTML;
-            computerChoice();
-        }
-    })
+let playerChoices = ()=>{
+    for(let i = 0; i < choices.length; i ++){
+        choices[i].addEventListener('click', (event)=>{
+            let choice = event.target;
+            if(choice){
+                playerScreen.innerHTML = choice.innerHTML;
+                computerChoices();
+            }
+        })
+    }    
 }
+playerChoices();
 
 // computer choice
-let computerChoice = ()=>{
+let computerChoices = ()=>{
     let randomNumber = Math.floor(Math.random() * 3) + 1;
     let randomChoice = document.querySelector(`.choices #choice-${randomNumber}`).innerHTML;
     cpuScreen.innerHTML = randomChoice; 
     checkWinner();
-    playerUpdate();
-    winUpdate();
-    loseUpdate();
+    randomExit();
 }
 
 // player update
@@ -75,11 +76,59 @@ let checkWinner = ()=>{
 } 
 
 // reset button
-let resetBtn = document.querySelector('.reset-btn');
-resetBtn.addEventListener('click', ()=>{
+   let resetGame = ()=>{
+    let resetBtn = document.querySelector('.reset-btn');
+    resetBtn.addEventListener('click', ()=>{
     playerScreen.innerHTML = '';
     cpuScreen.innerHTML = '';
     heading.innerHTML = " Rock Paper Scissors";
     let resetfx = new Audio('sounds/reset.mp3');
     resetfx.play();
-})
+
+    randomExit();
+  })
+}
+resetGame();
+
+// random play
+let randomPlay = ()=>{
+    let randomBtn = document.querySelector('.random-btn');
+    randomBtn.addEventListener('click', ()=>{
+    let randomBtnExit = document.querySelector('.random-btn-exit').style.display = 'block';
+    let randomBtn = document.querySelector('.random-btn').style.display = 'none';
+    let playBtn = document.querySelector('.random-play');
+    let choices = document.querySelector('.choices');
+    playBtn.style.display = 'block';
+    choices.style.display = 'none';
+/* 
+    randomAuto(); */
+});
+}
+randomPlay();
+
+// exit random play
+let randomExit = ()=>{
+    let randomBtnExit = document.querySelector('.random-btn-exit');
+    randomBtnExit.addEventListener('click', ()=>{
+    let randomBtn = document.querySelector('.random-btn').style.display = 'block';
+    let randomBtnExit = document.querySelector('.random-btn-exit').style.display = 'none';
+
+    let playBtn = document.querySelector('.random-play');
+    let choices = document.querySelector('.choices');
+    playBtn.style.display = 'none';
+    choices.style.display = 'flex';
+});
+}
+randomExit();
+
+let randomAuto = ()=>{
+    let playBtn = document.querySelector('.random-play');
+    playBtn.addEventListener('click', (event)=>{
+        let randomNumber = Math.floor(Math.random() * 3) + 1;
+        let randomChoice = document.querySelector(`.choices #choice-${randomNumber}`).innerHTML;
+        playerScreen.innerHTML = randomChoice; 
+        computerChoices();
+        checkWinner();
+    })
+}
+randomAuto();
