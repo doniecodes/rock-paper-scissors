@@ -110,6 +110,9 @@ let randomPlay = ()=>{
     let choices = document.querySelector('.choices');
     playBtn.style.display = 'block';
     choices.style.display = 'none';
+
+    let clickfx = new Audio('sounds/reset.mp3');
+    clickfx.play();
 });
 }
 randomPlay();
@@ -125,6 +128,9 @@ let randomExit = ()=>{
     let choices = document.querySelector('.choices');
     playBtn.style.display = 'none';
     choices.style.display = 'flex';
+
+    let clickfx = new Audio('sounds/reset.mp3');
+    clickfx.play();
 });
 }
 randomExit();
