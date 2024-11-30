@@ -22,9 +22,20 @@ body{
 .heading-1{
     font-size: 2rem;
     color: hsl(189, 75%, 45%);
+    margin-bottom: 3rem;
+}
+/* scores */
+.scores{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem 0.2rem 0.5rem;
+    transform: translateY(30px);
+}
+.score-1{
+    
 }
 .screens{
-    margin-top: 3rem;
     margin-bottom: 2.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -64,7 +75,7 @@ body{
     font-size: 1.5rem;
     cursor: pointer;
     display: none;
-    width: 25%;
+    width: 20%;
     margin: 0 auto;
 }
 .random-btn{
@@ -113,9 +124,9 @@ body{
     .heading-1{
         font-size: 2rem;
         color: hsl(189, 75%, 45%);
+        margin-bottom: 3rem;
     }
     .screens{
-        margin-top: 3rem;
         margin-bottom: 2.5rem;
         display: grid;
         grid-template-columns: 1fr 1fr;

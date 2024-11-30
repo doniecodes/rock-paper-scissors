@@ -2,6 +2,8 @@ let playerScreen = document.querySelector('.player-screen');
 let cpuScreen = document.querySelector('.cpu-screen');
 let heading = document.querySelector('.heading-1');
 let choices = document.querySelectorAll('.choices div');
+let count1 = 0;
+let count2 = 0;
 
 // player choice
 let playerChoices = ()=>{
@@ -31,12 +33,20 @@ let winUpdate = ()=>{
     heading.style.color = "hsl(189, 75%, 45%)";
     let winfx = new Audio('sounds/success.mp3');
     winfx.play();
+
+    let score1 = document.querySelector('.score-1');
+    count1 ++;
+    score1.innerHTML = count1;
 }
 //cpu update
 let loseUpdate = ()=>{
     heading.style.color = "hsl(4, 100%, 58%)";
     let losefx = new Audio('sounds/error.mp3');
     losefx.play();
+
+    let score2 = document.querySelector('.score-2');
+    count2 ++;
+    score2.innerHTML = count2;
 }
 
 // check winner
@@ -100,8 +110,6 @@ let randomPlay = ()=>{
     let choices = document.querySelector('.choices');
     playBtn.style.display = 'block';
     choices.style.display = 'none';
-/* 
-    randomAuto(); */
 });
 }
 randomPlay();
@@ -128,7 +136,6 @@ let randomAuto = ()=>{
         let randomChoice = document.querySelector(`.choices #choice-${randomNumber}`).innerHTML;
         playerScreen.innerHTML = randomChoice; 
         computerChoices();
-        checkWinner();
     })
 }
 randomAuto();
